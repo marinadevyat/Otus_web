@@ -6,7 +6,6 @@ import annotations.Driver;
 import exceptions.BrowserNotSupportedExceptions;
 import extensions.UIReflectionExtension;
 import factory.FactoryWebDriver;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +15,7 @@ import pages.MainPage;
 
 
 @ExtendWith(UIReflectionExtension.class)
-public class NewsPageTest {
+public class CoursesPageTest {
 
   @Driver
   private WebDriver driver;
@@ -24,7 +23,7 @@ public class NewsPageTest {
   @BeforeEach
   public void init() throws BrowserNotSupportedExceptions {
     FactoryWebDriver driverFactory = new FactoryWebDriver();
-    driver = driverFactory.create();
+    //driver = driverFactory.create();
   }
 
   @Test
@@ -37,12 +36,12 @@ public class NewsPageTest {
     sleep(10000);
   }
 
-  @AfterEach
-  public void closeAll() {
-    if (driver != null) {
-      driver.close();
-      driver.quit();
-    }
-  }
+  //@AfterEach
+  //public void closeAll() {
+  //if (driver != null) {
+  //driver.close();
+  //driver.quit();
+  //}
+  //}
 
 }

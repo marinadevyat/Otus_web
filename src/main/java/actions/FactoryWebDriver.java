@@ -1,2 +1,5 @@
-package actions;public enum FactoryWebDriver {
+package actions;
+
+public enum FactoryWebDriver {
+    browserName
 }
