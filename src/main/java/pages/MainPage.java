@@ -1,23 +1,39 @@
 package pages;
-import static java.lang.Thread.sleep;
 
+import exceptions.ProgramCardNotFoundException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import java.util.List;
 
 public class MainPage extends AbsBasePage<MainPage> {
-
   public MainPage(WebDriver driver) {
-    super(driver, "/");
+    super(driver);
   }
 
-  public CoursesPage navigateToCourses(String nameCourse) throws InterruptedException {
+  private WebElement getSpecCard(int index) {
+    List<WebElement> specCards = driver.findElements(
+        By.xpath("//section[./h2[text()='Специализации']]/div/div")
+    );
+    if (specCards.size() <= index) {
+      throw new IllegalArgumentException("index must be greater than count of specialization cards");
+    }
+    return specCards.get((specCards.size() + index) % specCards.size());
+  }
 
-    //driver.registerListener(new ListenerThatHiglilightsElementsBeforeAnyAction(3, 500, TimeUnit.MILLISECONDS));
-    driver.findElement(By.xpath("//div[text() = 'Тестирование']")).click();
-    //sleep(10000);
-    //String criteria = String.format("//div[text() = 'Тестироване']", nameCourse);
-    //WebElement button = waitForElement(By.xpath("//div[text() = 'Тестирование']"));button.click();
-    return new CoursesPage(driver);
+  public void selectProgramByEarliestStartDate() {
+    try {
+      getSpecCard(0).click();
+    } catch (IllegalArgumentException exc) {
+      throw new ProgramCardNotFoundException(exc);
+    }
+  }
 
+  public void selectProgramByLatestStartDate() {
+    try {
+      getSpecCard(- 1).click();
+    } catch (IllegalArgumentException exc) {
+      throw new ProgramCardNotFoundException(exc);
+    }
   }
 }

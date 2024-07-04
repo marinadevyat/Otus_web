@@ -1,12 +1,15 @@
 package pages;
 
+import annotations.PageValidation;
 import org.openqa.selenium.WebDriver;
-import java.time.Duration;
+@PageValidation("template://div[text()='%s']")
+public class CoursesPage extends AbsBasePage<CoursesPage> {
 
-public class CoursesPage extends MainPage{
 
   public CoursesPage(WebDriver driver) {
     super(driver);
 
   }
+
+
 }

@@ -24,8 +24,8 @@ public class StandartWaiter implements WaiterInt{
     return waitForCondition(ExpectedConditions.invisibilityOf(element));
   }
 
-    @Override
-    public boolean waitForCondition(ExpectedCondition condition) {
-        return false;
-    }
+  @Override
+  public boolean waitForCondition(ExpectedCondition condition) {
+    return false;
+  }
 }

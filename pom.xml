@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <webdriver.manager.version>5.7.0</webdriver.manager.version>
-    <selenium.java.version>4.13.0</selenium.java.version>
+    <selenium.java.version>4.14.0</selenium.java.version>
     <junit.version>5.10.2</junit.version>
     <faker.version>1.0.2</faker.version>
     <assertj.vertion>3.25.3</assertj.vertion>
@@ -29,6 +29,7 @@
 
     <spotbugs.version>4.8.2.0</spotbugs.version>
     <checkstyle.version>3.3.1</checkstyle.version>
+    <guice.version>7.0.0</guice.version>
   </properties>
 
   <dependencies>
@@ -49,36 +50,43 @@
       <type>pom</type>
       <scope>import</scope>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>org.junit.jupiter</groupId>-->
-<!--      <artifactId>junit-jupiter</artifactId>-->
-<!--      <version>${junit.version}</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.junit.jupiter</groupId>-->
-<!--      <artifactId>junit-jupiter-engine</artifactId>-->
-<!--      <version>${junit.version}</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-support</artifactId>
       <version>${selenium.java.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.8.1</version>
-    </dependency>
+
     <dependency>
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
       <version>${faker.version}</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.assertj</groupId>-->
+<!--      <artifactId>assertj-core</artifactId>-->
+<!--      <version>${assertj.version}</version>-->
+<!--    </dependency>-->
     <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.vertion}</version>
-    </dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.maven.plugin-tools</groupId>
+          <artifactId>maven-plugin-annotations</artifactId>
+          <version>3.5.2</version>
+      </dependency>
+
   </dependencies>
 
 
@@ -142,7 +150,7 @@
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
         <version>${spotbugs.version}</version>
-<!--        <dependencies>-->
+<!--        </dependencies>-->
 <!--          <dependency>-->
 <!--            <groupId>com.github.spotbugs</groupId>-->
 <!--            <artifactId>spotbugs-maven-plugin</artifactId>-->

@@ -3,7 +3,7 @@ package listeners;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-public class MouseListener implements WebDriverEventListener {
+public class WebDriverListener implements WebDriverEventListener {
   @Override
   public void beforeAlertAccept(WebDriver webDriver) {
 
